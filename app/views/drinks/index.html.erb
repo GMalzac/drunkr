@@ -11,8 +11,8 @@
         <h5 class="card-title"><%= drink.name %></h5>
       </div>
       <div class="card-footer">
-        <p class="card-text"><%= drink.volume %></p>
-        <p class="card-text"><%= drink.alcohol_rate %></p>
+        <p class="card-text"><%= drink.volume %> cl</p>
+        <p class="card-text"><%= drink.alcohol_rate %>%</p>
       </div>
       <div class="card-footer">
         <%= link_to "Add", user_drinks_create_path(drink), class: "btn btn-success" %>

@@ -11,7 +11,7 @@ puts "1. Creating drinks"
 puts "========================="
 
 #Create drinks based on data from NHS https://www.nhs.uk/live-well/alcohol-support/calculating-alcohol-units/
-Drink.create(name: "1/2 Pinte of regular beer", volume: 56.8, alcohol_rate: 4.5)
+Drink.create(name: "1/2 Pinte of regular beer", volume: 25, alcohol_rate: 4.5)
 Drink.create(name: "Pinte of regular beer", volume: 56.8, alcohol_rate: 4.5)
 Drink.create(name: "1/2 Pinte of strong beer", volume: 25, alcohol_rate: 6.5)
 Drink.create(name: "Pinte of strong beer", volume: 56.8, alcohol_rate: 6.5)
@@ -47,7 +47,6 @@ User.create(email: "alex@test.com", password: "123456")
 User.create(email: "greg@test.com", password: "123456")
 
 puts "#{ User.count } users created"
-
 
 
 # =============================================================================================================
