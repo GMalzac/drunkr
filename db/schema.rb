@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_18_155554) do
+ActiveRecord::Schema.define(version: 2018_09_19_171808) do
 
   create_table "drinks", force: :cascade do |t|
     t.string "name"
     t.float "volume"
     t.float "alcohol_rate"
-    t.float "alcohol"
+    t.float "alcohol_unit"
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
