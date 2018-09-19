@@ -12,6 +12,9 @@
         <p class="card-text"><%= drink.volume %></p>
         <p class="card-text"><%= drink.alcohol_rate %></p>
       </div>
+      <div class="card-footer">
+        <%= link_to "Add", user_drinks_create_path(drink), class: "btn btn-success" %>
+      </div>
     </div>
     <!-- Force next card to break to new line every 3 card-->
     <% counter += 1 %>
