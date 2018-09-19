@@ -51,7 +51,7 @@ puts "#{ User.count } users created"
 
 
 # =============================================================================================================
-# 3. ASSIGN USERS TO DRINKS
+# 3. ASSIGN DRINKS TO USERS
 # =============================================================================================================
 
 puts "========================="
@@ -60,9 +60,10 @@ puts "========================="
 
 users = User.all
 users.each do |user|
-  rand(1..10).times {
+  rand(20..50).times {
     rand_drink_id = rand(1..13)
-    UserDrink.create(user_id: user.id, drink_id: rand_drink_id)
+    rand_date =  (0..365).to_a.sample.days.ago.to_date
+    UserDrink.create(user_id: user.id, drink_id: rand_drink_id, created_at: rand_date)
   }
 end
 
