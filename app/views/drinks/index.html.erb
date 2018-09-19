@@ -1,7 +1,20 @@
 <h1>Drinks#index</h1>
 
-<ul>
-<% @drinks.each do |drink| %>
-  <li><%= link_to drink.name, drink_path(drink) %></li>
-<% end %>
-</ul>
+<div class="card-deck">
+  <% counter = 0 %>
+  <% @drinks.each do |drink| %>
+    <div class="card card-margin">
+      <%= image_tag "default_drink.png", class:"card-img-top" %>
+      <div class="card-body">
+        <h5 class="card-title"><%= drink.name %></h5>
+        <p class="card-text"><%= drink.volume %></p>
+        <p class="card-text"><%= drink.alcohol_rate %></p>
+        <% counter += 1 %>
+        <!-- Force next card to break to new line every 3 card-->
+      </div>
+    </div>
+    <% if counter % 4 == 0 %>
+      <div class="w-100"></div>
+    <% end %>
+  <% end %>
+</div>
