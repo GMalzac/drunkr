@@ -1,5 +1,7 @@
 <h1>Drinks#index</h1>
 
+<%= link_to "View everything I have drunk", user_drinks_index_path, class: "btn btn-primary" %>
+
 <div class="card-deck">
   <% counter = 0 %>
   <% @drinks.each do |drink| %>
