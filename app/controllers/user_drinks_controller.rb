@@ -1,6 +1,6 @@
 class UserDrinksController < ApplicationController
   def index
-    @user = current_user
+    @user_drinks = UserDrink.where(user_id: current_user).order(created_at: :desc)
   end
 
   def show

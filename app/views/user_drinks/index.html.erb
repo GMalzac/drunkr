@@ -1,5 +1,8 @@
 <h1>UserDrinks#index</h1>
 <p>Find me in app/views/user_drinks/index.html.erb</p>
- <p><%= @user %></p>
+<ul>
+  <% @user_drinks.each do |user_drink| %>
+    <li><%= user_drink.drink.name %> - <%= user_drink.created_at %></li>
+  <% end %>
+</ul>
 
-<%#= @user_drinks.all %>
