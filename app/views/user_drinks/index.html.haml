@@ -1,0 +1,39 @@
+%h1 Dashboard
+= link_to "Add a drink", drinks_path, class: "btn btn-success float-right"
+%h2= "#{@drunk_level.round(2)} g/L, you are #{@drunk_status}"
+%h3
+  Your had
+  = succeed "drinks" do
+    %strong
+      = @day_drinks_counter
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th{:scope => "col"} Drink
+        %th{:scope => "col"} Drunk at
+        %th{:scope => "col"} Edit
+        %th{:scope => "col"} Delete
+    %tbody
+      - @day_drinks.each do |day_drink|
+        %tr
+          %th{:scope => "row"}= day_drink.drink.name
+          %td= day_drink.created_at
+          %td= link_to "Edit", user_drink_path(day_drink), class: "btn btn-primary"
+          %td= link_to "Delete", user_drink_path(day_drink), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+%h3 Your drinking history
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th{:scope => "col"} Drink
+        %th{:scope => "col"} Drunk at
+        %th{:scope => "col"} Edit
+        %th{:scope => "col"} Delete
+    %tbody
+      - @user_drinks.each do |user_drink|
+        %tr
+          %th{:scope => "row"}= user_drink.drink.name
+          %td= user_drink.created_at
+          %td= link_to "Edit", user_drink_path(user_drink), class: "btn btn-primary"
+          %td= link_to "Delete", user_drink_path(user_drink), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"

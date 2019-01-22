@@ -1,0 +1,22 @@
+%h1 Drinks#index
+= link_to "View everything I have drunk", user_drinks_path, class: "btn btn-primary"
+.card-deck
+  - counter = 0
+  - @drinks.each do |drink|
+    .card.card-margin
+      = image_tag "default_drink.png", class:"card-img-top"
+      .card-body
+        %h5.card-title= drink.name
+      .card-footer
+        %p.card-text
+          = drink.volume
+          cl
+        %p.card-text
+          = drink.alcohol_rate
+          \%
+      .card-footer
+        = link_to "Add", user_drink_create_path(drink), method: :post, class: "btn btn-success"
+    / Force next card to break to new line every 3 card
+    - counter += 1
+    - if counter % 4 == 0
+      .w-100

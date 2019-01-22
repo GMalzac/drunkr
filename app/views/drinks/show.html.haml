@@ -1,0 +1,8 @@
+%h1= @drink.name
+%h2
+  = @drink.volume
+  cl
+%h2
+  = @drink.alcohol_rate
+  \%
+= link_to "Back", drinks_path, class: "btn btn-secondary"
