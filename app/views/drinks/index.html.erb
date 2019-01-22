@@ -1,6 +1,6 @@
 <h1>Drinks#index</h1>
 
-<%= link_to "View everything I have drunk", user_drinks_index_path, class: "btn btn-primary" %>
+<%= link_to "View everything I have drunk", user_drinks_path, class: "btn btn-primary" %>
 
 <div class="card-deck">
   <% counter = 0 %>
@@ -15,7 +15,7 @@
         <p class="card-text"><%= drink.alcohol_rate %>%</p>
       </div>
       <div class="card-footer">
-        <%= link_to "Add", user_drinks_create_path(drink), class: "btn btn-success" %>
+        <%= link_to "Add", user_drink_create_path(drink), method: :post, class: "btn btn-success" %>
       </div>
     </div>
     <!-- Force next card to break to new line every 3 card-->

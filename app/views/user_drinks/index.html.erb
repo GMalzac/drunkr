@@ -1,11 +1,57 @@
-<h1>UserDrinks#index</h1>
-<p>Find me in app/views/user_drinks/index.html.erb</p>
-<%= link_to "Add a drink", drinks_path, class: "btn btn-success" %>
+<h1>Dashboard</h1>
 
-<ul>
-  <% @user_drinks.each do |user_drink| %>
-    <li><%= user_drink.drink.name %> - <%= user_drink.created_at %></li>
-  <% end %>
-</ul>
+<%= link_to "Add a drink", drinks_path, class: "btn btn-success float-right" %>
+
+
+<h2><%= "#{@drunk_level.round(2)} g/L, you are #{@drunk_status}"%></h2>
+
+<h3>Your had <strong> <%= @day_drinks_counter %> </strong>drinks during the last 24 hours</h3>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Drink</th>
+        <th scope="col">Drunk at</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @day_drinks.each do |day_drink| %>
+        <tr>
+          <th scope="row"><%= day_drink.drink.name %></th>
+          <td><%= day_drink.created_at %></td>
+          <td>bla</td>
+          <td>bla</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<h3>Your drinking history</h3>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Drink</th>
+        <th scope="col">Drunk at</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user_drinks.each do |user_drink| %>
+        <tr>
+          <th scope="row"><%= user_drink.drink.name %></th>
+          <td><%= user_drink.created_at %></td>
+          <td><%= link_to "Edit", user_drink_path(user_drink), class: "btn btn-primary" %></td>
+          <td><%= link_to "Delete", user_drink_path(user_drink), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 
